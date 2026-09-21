@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import api from "../services/api";
 import { Link } from "react-router-dom";
 import CourseCard from "../componenets/CourseCard";
+import ScrollReveal from "../componenets/ScrollReveal";
 
 function MyEnrollments() {
 
@@ -24,7 +25,7 @@ function MyEnrollments() {
     return (
         <div className="max-w-7xl mx-auto px-6 py-10">
             <h1 className="text-4xl font-bold text-gray-800 mb-8">
-                My Courses
+                Enrolled Courses
             </h1>
 
             {enrollments.length === 0 ? (
@@ -45,8 +46,10 @@ function MyEnrollments() {
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {
                 enrollments.map(
-                    (item)=> (
-                        <CourseCard key={item.id} course={item.course}/>
+                    (item, index)=> (
+                       <ScrollReveal key={item.id} delay={index * 0.1}> 
+                        <CourseCard  course={item.course}/>
+                       </ScrollReveal> 
                     )
                 )
             }
