@@ -24,6 +24,8 @@ class Courses(models.Model):
 
     price = models.DecimalField(max_digits=8,decimal_places=2,default=0)
 
+    is_published = models.BooleanField(default=False)
+
     def __str__(self):
         return self.title
     
@@ -37,6 +39,8 @@ class Chapter(models.Model):
     )
 
     title = models.CharField(max_length=200)
+
+    description = models.TextField(blank=True)
 
     video = models.FileField(upload_to="videos/")
 

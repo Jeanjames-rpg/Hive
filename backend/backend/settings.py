@@ -161,3 +161,14 @@ REST_FRAMEWORK = {
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / "media"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+
+EMAIL_HOST = "127.0.0.1"
+EMAIL_PORT = 1025
+
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+
+DEFAULT_FROM_EMAIL = "noreply@hive.local"
